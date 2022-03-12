@@ -6,10 +6,15 @@ const { ObjectId } = mongoose.Schema;
 
 const UserSchema = mongoose.Schema(
     {
-        name: {
+        firstName: {
             type: String,
             trim: true,
             required: true,
+        },
+
+        lastName: {
+            type: String,
+            trim: true,
         },
 
         username: {
