@@ -9,6 +9,7 @@ const User = require("../../models/User");
  *
  * @param       {String} userID
  * @param       {String} name
+ * @param       {String} type
  * @param       {Number} balance
  */
 const AddTransactionSource = async (req, res) => {
