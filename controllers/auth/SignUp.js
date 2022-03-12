@@ -10,14 +10,15 @@ const User = require("../../models/User");
  * @access      Public
  *
  * @param       {String} username
- * @param       {String} name
+ * @param       {String} firstName
+ * @param       {String} lastName
  * @param       {String} email
  * @param       {String} password
  * @param       {String} confirmationPassword
  */
 const UserSignUp = async (req, res) => {
     try {
-        const { username, name, email, password } = req.body;
+        const { username, firstName, lastName, email, password } = req.body;
 
         const existingUser = await User.findOne({
             $or: [
@@ -39,7 +40,8 @@ const UserSignUp = async (req, res) => {
 
         let newUser = new User({
             username,
-            name,
+            firstName,
+            lastName,
             email,
             password,
         });
