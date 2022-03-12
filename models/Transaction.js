@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const { TransactionTypes } = require("../utils/enum");
 
 const { ObjectId } = mongoose.Schema;
 
@@ -14,8 +15,8 @@ const TransactionSchema = mongoose.Schema(
             type: String,
             trim: true,
             required: true,
-            enum: ["income", "expense"],
-            default: "expense",
+            enum: TransactionTypes,
+            default: TransactionTypes[0],
         },
 
         description: {

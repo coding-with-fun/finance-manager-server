@@ -44,6 +44,10 @@ const FetchTransactionSourcesList = async (req, res) => {
             message: "Transaction sources list fetched successfully.",
             data: {
                 transactionSources: transactionSourcesList,
+                pageNumber,
+                perPage,
+                sortField,
+                sortType,
             },
         });
     } catch (error) {

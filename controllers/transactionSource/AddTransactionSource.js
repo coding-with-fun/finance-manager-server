@@ -26,11 +26,12 @@ const AddTransactionSource = async (req, res) => {
             });
         }
 
-        const { name, balance } = req.body;
+        const { name, balance, type } = req.body;
 
         const newTransactionSource = new TransactionSource({
             name,
             balance,
+            type,
             userID,
         });
         await newTransactionSource.save();
