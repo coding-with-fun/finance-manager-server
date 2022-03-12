@@ -1,3 +1,8 @@
-export const TransactionSourceTypes = ["bank-account", "card"];
+const TransactionSourceTypes = ["bank-account", "card"];
 
-export const TransactionTypes = ["income", "expense"];
+const TransactionTypes = ["income", "expense"];
+
+module.exports = {
+    TransactionSourceTypes,
+    TransactionTypes,
+};
