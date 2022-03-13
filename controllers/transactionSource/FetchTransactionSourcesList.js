@@ -36,7 +36,7 @@ const FetchTransactionSourcesList = async (req, res) => {
             .sort({
                 [sortField]: sortType,
             })
-            .skip(pageNumber)
+            .skip(pageNumber * perPage)
             .limit(perPage);
         const count = await TransactionSource.countDocuments();
 
