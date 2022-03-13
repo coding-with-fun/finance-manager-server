@@ -24,7 +24,7 @@ const FetchTransactionSourcesList = async (req, res) => {
         }
 
         const {
-            pageNumber = 1,
+            pageNumber = 0,
             perPage = 10,
             sortField = "createdAt",
             sortType = "asc",
@@ -36,18 +36,20 @@ const FetchTransactionSourcesList = async (req, res) => {
             .sort({
                 [sortField]: sortType,
             })
-            .skip(pageNumber - 1)
+            .skip(pageNumber)
             .limit(perPage);
+        const count = await TransactionSource.countDocuments();
 
         return res.status(200).json({
             success: true,
             message: "Transaction sources list fetched successfully.",
             data: {
                 transactionSources: transactionSourcesList,
-                pageNumber,
-                perPage,
+                pageNumber: parseInt(pageNumber),
+                perPage: parseInt(perPage),
                 sortField,
                 sortType,
+                count,
             },
         });
     } catch (error) {
