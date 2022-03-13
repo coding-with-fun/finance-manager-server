@@ -36,7 +36,7 @@ const FetchTransactionsList = async (req, res) => {
             .sort({
                 [sortField]: sortType,
             })
-            .skip(pageNumber - 1)
+            .skip(pageNumber * perPage)
             .limit(perPage);
 
         return res.status(200).json({
